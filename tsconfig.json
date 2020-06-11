@@ -2,22 +2,25 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-    "lib": [],
+    "lib": ["ES2017"],
     "allowJs": true,
-    "checkJs": true, // 允许在JS文件中报错，通常与allowJS一起使用
-    "sourceMap": true,
+    "sourceMap": false,
     "outDir": "./dist",
     "removeComments": true,
     "baseUrl": "./",
-    "paths": {},
+    "paths": {
+      "controllers/*": ["app/controllers/*"],
+      "services/*": ["app/services/*"],
+      "interceptors/*": ["app/interceptors/*"],
+      "middlewares/*": ["app/middlewares/*"]
+    },
     "typeRoots": ["node_modules/@types", "typings"],
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "noImplicitAny": true,
-    "noUnusedLocals": true, // 检查只声明、未使用的局部变量(只提示不报错)
-    "noUnusedParameters": true, // 检查未使用的函数参数(只提示不报错)
-    "strict": true // 开启所有严格的类型检查
+    "noImplicitAny": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
   },
   "exclude": ["node_modules", "dist"]
 }
