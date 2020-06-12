@@ -12,6 +12,7 @@
   "dependencies": {
     "class-transformer": "^0.2.3",
     "class-validator": "^0.12.2",
+    "dotenv": "^8.2.0",
     "kcors": "^2.2.2",
     "koa": "^2.12.0",
     "koa-bodyparser": "^4.3.0",
@@ -22,6 +23,7 @@
     "typedi": "^0.8.0"
   },
   "devDependencies": {
+    "@types/dotenv": "^8.2.0",
     "@types/kcors": "^2.2.3",
     "@types/koa": "^2.11.3",
     "@types/koa-bodyparser": "^4.3.0",

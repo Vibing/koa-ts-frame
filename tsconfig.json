@@ -20,7 +20,7 @@
     "emitDecoratorMetadata": true,
     "noImplicitAny": false,
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": false
   },
   "exclude": ["node_modules", "dist"]
 }

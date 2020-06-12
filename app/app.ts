@@ -2,9 +2,16 @@ import 'reflect-metadata';
 import { useKoaServer, Action, useContainer } from 'routing-controllers';
 import { Container } from 'typedi';
 import Koa from 'koa';
-// import UserController from 'controllers/UserController';
+import { GlobalMiddleware } from 'middlewares/globalMiddleware';
 
-const app = new Koa();
+const K: any = Koa;
+K.prototype.hello = function () {
+  console.log('yes hello!');
+};
+const app: any = new K();
+app.say = () => {
+  console.log('9999');
+};
 
 useContainer(Container);
 // app.use();
@@ -14,7 +21,7 @@ const server = useKoaServer(app, {
   development: false,
   routePrefix: '/api',
   controllers: [`${__dirname}/controllers/**/*.*s`],
-  middlewares: [`${__dirname}/middlewares/**/*.*s`],
+  middlewares: [GlobalMiddleware],
   interceptors: [`${__dirname}/interceptors/**/*.*s`],
   /* 
     用于检查每个请求的用户授权角色的特殊功能
