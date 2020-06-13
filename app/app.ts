@@ -2,19 +2,13 @@ import 'reflect-metadata';
 import { useKoaServer, Action, useContainer } from 'routing-controllers';
 import { Container } from 'typedi';
 import Koa from 'koa';
-import { GlobalMiddleware } from 'middlewares/globalMiddleware';
+import GlobalMiddleware from 'middlewares/globalMiddleware';
+import expands from 'expands';
 
-const K: any = Koa;
-K.prototype.hello = function () {
-  console.log('yes hello!');
-};
-const app: any = new K();
-app.say = () => {
-  console.log('9999');
-};
+const app = new Koa();
 
+expands(app);
 useContainer(Container);
-// app.use();
 
 const server = useKoaServer(app, {
   cors: {},

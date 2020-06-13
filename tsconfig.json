@@ -12,7 +12,8 @@
       "controllers/*": ["app/controllers/*"],
       "services/*": ["app/services/*"],
       "interceptors/*": ["app/interceptors/*"],
-      "middlewares/*": ["app/middlewares/*"]
+      "middlewares/*": ["app/middlewares/*"],
+      "expands/*": ["expands/*"]
     },
     "typeRoots": ["node_modules/@types", "typings"],
     "esModuleInterop": true,
@@ -22,5 +23,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": false
   },
+  "include": ["app", "expands", "config"],
   "exclude": ["node_modules", "dist"]
 }

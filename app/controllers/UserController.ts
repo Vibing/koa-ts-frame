@@ -7,8 +7,8 @@ import {
   UseAfter
 } from 'routing-controllers';
 import UserService from 'services/UserService';
-import { MyMiddleware } from 'middlewares/MyMiddleware';
-import { loggingMiddleware } from 'middlewares/loggingMiddleware';
+import MyMiddleware from 'middlewares/MyMiddleware';
+import loggingMiddleware from 'middlewares/loggingMiddleware';
 
 @JsonController()
 @UseBefore(MyMiddleware)
@@ -18,13 +18,13 @@ export default class UserController {
 
   @Get('/users')
   async getAll(@Ctx() ctx: Context) {
-    console.log('ctx');
-
     return { message: 'hello2', users: await this.userService.getUsers() };
   }
 
   @Get('/user')
-  async getOne() {
+  async getOne(@Ctx() ctx: Context) {
+    console.log(ctx);
+
     return { user: 'hello' };
   }
 }

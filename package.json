@@ -10,6 +10,7 @@
     "tsc": "rm -rf dist && tsc -p tsconfig.json"
   },
   "dependencies": {
+    "ali-rds": "^3.3.0",
     "class-transformer": "^0.2.3",
     "class-validator": "^0.12.2",
     "dotenv": "^8.2.0",

@@ -3,7 +3,7 @@ import { KoaMiddlewareInterface, Middleware } from 'routing-controllers';
 @Middleware({
   type: 'before'
 })
-export class GlobalMiddleware implements KoaMiddlewareInterface {
+export default class GlobalMiddleware implements KoaMiddlewareInterface {
   use(context: any, next: (err?: any) => Promise<any>): Promise<any> {
     console.log('global middleware---->>do something before execution...');
     return next()
