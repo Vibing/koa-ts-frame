@@ -1,7 +1,20 @@
-const fs = require('fs');
+const glob = require('glob');
 const path = require('path');
+const fs = require('fs');
 
-const dirs = fs.readdirSync('./app');
-const file = fs.statSync('./app/app.ts');
-file.console.log(fs.statSync('./app/app.ts').isFile());
-console.log(dirs);
+const paths = [
+  path.resolve(__dirname, '../app/**/*.ts'),
+  path.resolve(__dirname, '../expands/**/*.ts'),
+  path.resolve(__dirname, '../config/**/*.ts')
+];
+
+paths.forEach(path => {
+  glob(path, (err, files) => {
+    if (err) throw '';
+    files.forEach(i => {
+      try {
+        fs.unlinkSync(i.replace('.ts', '.js'));
+      } catch (error) {}
+    });
+  });
+});
