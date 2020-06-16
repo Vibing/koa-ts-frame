@@ -5,8 +5,18 @@
   "repository": "https://github.com/Vibing/koa-ts-frame.git",
   "author": "chenlong <cl903254852@gmail.com>",
   "license": "MIT",
+  "_moduleAliases": {
+    "controllers/": "app/controllers",
+    "services/": "app/services",
+    "interceptors/": "app/interceptors",
+    "middlewares/": "app/middlewares",
+    "expands/": "expands",
+    "app": "app/app"
+  },
   "scripts": {
-    "dev": "npx nodemon",
+    "dev": "cross-env NODE_ENV=production npx nodemon",
+    "dev2": "cross-env NODE_ENV=production node app/index.js",
+    "start": "NODE_ENV=production && pm2 start app/index.js",
     "tsc": "rm -rf dist && tsc -p tsconfig.json",
     "clean": "node bin/clean.js"
   },
@@ -26,15 +36,19 @@
     "typedi": "^0.8.0"
   },
   "devDependencies": {
+    "@momothepug/tsmodule-alias": "^1.0.0",
     "@types/dotenv": "^8.2.0",
     "@types/kcors": "^2.2.3",
     "@types/koa": "^2.11.3",
     "@types/koa-bodyparser": "^4.3.0",
     "@types/koa-router": "^7.4.1",
     "@types/node": "^14.0.13",
+    "cross-env": "^7.0.2",
+    "module-alias": "^2.2.2",
     "nodemon": "^2.0.4",
     "ts-node": "^8.10.2",
     "tsconfig-paths": "^3.9.0",
+    "tscpaths": "^0.0.9",
     "typescript": "^3.9.5"
   }
 }

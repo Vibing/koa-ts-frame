@@ -1,15 +1,7 @@
 import rds from 'ali-rds';
-import dotenv from 'dotenv';
+import config from 'configs/account';
 
-dotenv.config();
-
-const db = rds({
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE
-});
+const db = rds(config[process.env.NODE_ENV].mysql);
 
 export default ctx => {
   ctx.mysql = db;

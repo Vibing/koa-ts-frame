@@ -5,7 +5,7 @@ const fs = require('fs');
 const paths = [
   path.resolve(__dirname, '../app/**/*.ts'),
   path.resolve(__dirname, '../expands/**/*.ts'),
-  path.resolve(__dirname, '../config/**/*.ts')
+  path.resolve(__dirname, '../configs/**/*.ts')
 ];
 
 paths.forEach(path => {

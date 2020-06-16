@@ -2,18 +2,19 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
+    "types": ["node"],
     "lib": ["ES2017"],
     "allowJs": true,
     "sourceMap": false,
-    // "outDir": "./dist",
     "removeComments": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
       "controllers/*": ["app/controllers/*"],
       "services/*": ["app/services/*"],
       "interceptors/*": ["app/interceptors/*"],
       "middlewares/*": ["app/middlewares/*"],
-      "expands/*": ["expands/*"]
+      "expands/*": ["expands/*"],
+      "app": ["app/app"]
     },
     "typeRoots": ["node_modules/@types", "typings"],
     "esModuleInterop": true,
@@ -23,6 +24,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": false
   },
-  "include": ["app", "expands", "config"],
+  "include": ["app", "expands", "configs"],
   "exclude": ["node_modules", "dist"]
 }

@@ -1,6 +1,6 @@
 {
-  "exec": "ts-node -r tsconfig-paths/register app/app.ts",
-  "watch": ["app/"],
+  "exec": "ts-node -r tsconfig-paths/register app/index.ts",
+  "watch": ["app/", "expands/", "config/"],
   "ext": "ts,json",
   "env": {
     "NODE_ENV": "development"
