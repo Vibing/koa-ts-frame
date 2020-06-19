@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+import path from 'path';
 import { Action, RoutingControllersOptions } from 'routing-controllers';
 import GlobalMiddleware from 'middlewares/globalMiddleware';
 
@@ -12,9 +13,13 @@ const serverConfig: RoutingControllersOptions = {
   cors: {},
   development: isDev,
   routePrefix: '/api',
-  controllers: [`${__dirname}/controllers/**/*.${isDev ? 'ts' : 'js'}`],
+  controllers: [
+    path.resolve(__dirname, `../app/controllers/**/*.${isDev ? 'ts' : 'js'}`)
+  ],
   middlewares: [GlobalMiddleware],
-  interceptors: [`${__dirname}/interceptors/**/*.${isDev ? 'ts' : 'js'}`],
+  interceptors: [
+    path.resolve(__dirname, `../app/interceptors/**/*.${isDev ? 'ts' : 'js'}`)
+  ],
   /* 
     用于检查每个请求的用户授权角色的特殊功能
     必须返回true或用布尔true解析的promise才能授权成功
